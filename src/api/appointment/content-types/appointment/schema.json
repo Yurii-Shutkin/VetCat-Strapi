@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "appointments",
+  "info": {
+    "singularName": "appointment",
+    "pluralName": "appointments",
+    "displayName": "appointment"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "affiliate": {
+      "type": "enumeration",
+      "enum": [
+        "strogino",
+        "donskoy"
+      ]
+    },
+    "date": {
+      "type": "date"
+    },
+    "pet": {
+      "type": "string"
+    },
+    "desc": {
+      "type": "text"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "services_cards",
+  "info": {
+    "singularName": "services-card",
+    "pluralName": "services-cards",
+    "displayName": "services-card"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "desc": {
+      "type": "string"
+    }
+  }
+}
