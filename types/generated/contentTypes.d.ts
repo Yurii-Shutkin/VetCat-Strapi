@@ -613,6 +613,32 @@ export interface ApiServicesCardServicesCard
   };
 }
 
+export interface ApiSkillSkill extends Struct.CollectionTypeSchema {
+  collectionName: 'skills';
+  info: {
+    displayName: 'skill';
+    pluralName: 'skills';
+    singularName: 'skill';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::skill.skill'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    skill: Schema.Attribute.String;
+    teams: Schema.Attribute.Relation<'manyToMany', 'api::team.team'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiTeamTeam extends Struct.CollectionTypeSchema {
   collectionName: 'teams';
   info: {
@@ -637,6 +663,7 @@ export interface ApiTeamTeam extends Struct.CollectionTypeSchema {
     position: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     reviews: Schema.Attribute.Relation<'oneToMany', 'api::review.review'>;
+    skills: Schema.Attribute.Relation<'manyToMany', 'api::skill.skill'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1160,6 +1187,7 @@ declare module '@strapi/strapi' {
       'api::post.post': ApiPostPost;
       'api::review.review': ApiReviewReview;
       'api::services-card.services-card': ApiServicesCardServicesCard;
+      'api::skill.skill': ApiSkillSkill;
       'api::team.team': ApiTeamTeam;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

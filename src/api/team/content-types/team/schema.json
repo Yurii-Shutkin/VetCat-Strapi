@@ -38,6 +38,12 @@
       "relation": "oneToMany",
       "target": "api::review.review",
       "mappedBy": "team"
+    },
+    "skills": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::skill.skill",
+      "mappedBy": "teams"
     }
   }
 }
